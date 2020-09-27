@@ -1136,7 +1136,9 @@ class _displayState extends State<display> {
       }
     }
   }
+void binarydatareader()async{
 
+}
   @override
   void initState() {
     getData();// TODO: implement initState
@@ -1152,31 +1154,26 @@ class _displayState extends State<display> {
         ),
 
       ),
-      body: Container(
-        child: Row(
-          children: [
-                StreamBuilder(
-                  stream: _firestore.collection('SL.no').snapshots(),
-                  builder:(BuildContext context, AsyncSnapshot<Snapshot> snapshot) {
-                    if(!snapshot.hasData){
-                      return Center(
-                            child: CircularProgressIndicator();
-                      );
-                    }
-return ListView(
-  children: snapshot.data.documents.map((document){
-        return Container(
-
-          child:Text(
-            "  " + document[0],
-          )
-        )
-})
-);
-                  }             )
-          ],
+      body:  ListView(
+    children: [
+      Text('Table Structure'),
+      Text('Name ---->  aaj'),
+      Text('Gender---> 1'),
+      Text('Ip No ---->  125'),
+      Text('Doc No ----> 548'),
+      Text('Blood Pressure ----> 54.8'),
+      Text('Name of data collector ----> sample'),
+      Text('Designation ----> Doctor'),
+      Text('Date ----> 5-4-20'),
+      Container(
+        child: RaisedButton(child:Text(
+          'Generate Binary format data'
         ),
-         ),
-    );
+            color:Colors.red,onPressed: binarydatareader)
+      )
+
+  ],
+
+    ));
   }
 }
